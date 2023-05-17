@@ -4,9 +4,118 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <style>
+
+        body{
+            background-color: pink;
+            font-family: Sofia, sans-serif;
+        }
+
+        .belo{
+            background-color: white;
+            padding: 3%;
+            font-family: Sofia, sans-serif;
+        }
+
+        .pink {
+            background-color: hotpink;
+            color: white;
+        }
+
+    </style>
+    <title>Prijava</title>
 </head>
 <body>
-    
+    <div class="grid-container">
+        <div class="grid-x">
+            <div class="belo cell medium-5">
+                <form>
+                    <div class="callout text-center">
+                        <h1><b>Dobrodosli!</b></h1>
+                    </div>
+
+                    <div class="cell">
+                        <h2 class="text-center">Prijava</h2>
+
+                        <div class="grid-x grid-margin-x">
+                            <div class="cell">
+                                <label>Korisnicko ime
+                                    <input type="text" name="username" placeholder="Username">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="grid-x grid-margin-x">
+                            <div class="cell">
+                                <label>Sifra
+                                    <input type="password" name="password" placeholder="Password">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="grid-x grid-margin-x">
+                            <div class="cell">
+                                <button type="button" class="button primary expanded alert" onclick="login()">Prijavi se</button>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <h2 class="text-center">Kreiraj nalog:</h2>
+
+                        <div id="registration">
+                            <div class="grid-x grid-margin-x">
+                                <div class="cell">
+                                    <label>Ime i prezime
+                                        <input type="text" placeholder="Ime i prezime...">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="grid-x grid-margin-x">
+                                <div class="cell">
+                                    <label>Korisnicko ime
+                                        <input type="text" placeholder="Korisnicko ime...">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="grid-x grid-margin-x">
+                                <div class="cell">
+                                    <label>Sifra
+                                        <input type="password" placeholder="Unesi sifru...">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="grid-x grid-margin-x">
+                                <div class="cell">
+                                    <label>Potvrdi sifru
+                                        <input type="password" placeholder="Potvrdi iznad unetu sifru...">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="grid-x grid-margin-x">
+                                <div class="cell">
+                                    <button type="button" class="button primary expanded alert" onclick="register()">Kreiraj novi nalog u bazi podataka</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js" crossorigin="anonymous"></script>
+    <script>
+        $(document).foundation();
+        // Custom JavaScript code can be added here
+    </script>
 </body>
 </html>
