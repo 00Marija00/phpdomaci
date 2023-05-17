@@ -27,19 +27,20 @@
             </tbody>
         </table>
 
-        <button class="button alert" id="logoutButton">Odjavi se :( </button>
+        <button class="button alert" id="logoutButton"> Odjavi se :( </button>
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js" crossorigin="anonymous"></script>
     <script>
 
+        //ODJAVA
         function logout() {
             window.location.href = "index.html";
         }
-
-        // Attach event listener to the logout button
         $("#logoutButton").on("click", logout);
+
+
     
     </script>
 </body>
