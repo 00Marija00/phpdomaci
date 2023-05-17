@@ -43,7 +43,7 @@
                         <div class="grid-x grid-margin-x">
                             <div class="cell">
                                 <label>Korisnicko ime
-                                    <input type="text" name="username" placeholder="Username">
+                                    <input type="text" name="username" placeholder="Username" id="username">
                                 </label>
                             </div>
                         </div>
@@ -51,14 +51,14 @@
                         <div class="grid-x grid-margin-x">
                             <div class="cell">
                                 <label>Sifra
-                                    <input type="password" name="password" placeholder="Password">
+                                    <input type="password" name="password" placeholder="Password" id="password">
                                 </label>
                             </div>
                         </div>
 
                         <div class="grid-x grid-margin-x">
                             <div class="cell">
-                                <button type="button" class="button primary expanded alert" onclick="login()">Prijavi se</button>
+                                <button type="button" id="login" class="button primary expanded alert" onclick="Login()">Prijavi se</button>
                             </div>
                         </div>
 
@@ -70,7 +70,7 @@
                             <div class="grid-x grid-margin-x">
                                 <div class="cell">
                                     <label>Ime i prezime
-                                        <input type="text" placeholder="Ime i prezime...">
+                                        <input type="text" placeholder="Ime i prezime..." id="imeprezime">
                                     </label>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@
                             <div class="grid-x grid-margin-x">
                                 <div class="cell">
                                     <label>Korisnicko ime
-                                        <input type="text" placeholder="Korisnicko ime...">
+                                        <input type="text" placeholder="Korisnicko ime..."id="korisnickoIme">
                                     </label>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@
                             <div class="grid-x grid-margin-x">
                                 <div class="cell">
                                     <label>Sifra
-                                        <input type="password" placeholder="Unesi sifru...">
+                                        <input type="password" placeholder="Unesi sifru..." id="lozinka">
                                     </label>
                                 </div>
                             </div>
@@ -94,14 +94,14 @@
                             <div class="grid-x grid-margin-x">
                                 <div class="cell">
                                     <label>Potvrdi sifru
-                                        <input type="password" placeholder="Potvrdi iznad unetu sifru...">
+                                        <input type="password" placeholder="Potvrdi iznad unetu sifru..." id="lozinka2">
                                     </label>
                                 </div>
                             </div>
 
                             <div class="grid-x grid-margin-x">
                                 <div class="cell">
-                                    <button type="button" class="button primary expanded alert" onclick="register()">Kreiraj novi nalog u bazi podataka</button>
+                                    <button type="button" class="button primary expanded alert" onclick="Register()">Kreiraj novi nalog u bazi podataka</button>
                                 </div>
                             </div>
                         </div>
@@ -113,9 +113,85 @@
 
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js" crossorigin="anonymous"></script>
-    <script>
-        $(document).foundation();
-        // Custom JavaScript code can be added here
+    
+    <script type="text/javascript">
+       
+       //POMOCNA FUNKCIJA
+       function pomocna(poziv){
+            if (poziv.val() == ''){
+                poziv.css('border', '5px solid hotpink');
+                return false;
+            } else 
+                poziv.css('border','');
+            return true;
+        }
+       
+       
+       //LOGIN
+        function Login(){
+            var u = $("#username");
+            var p = $("#password");
+                
+            if (pomocna(u) & pomocna(p)){
+                $.ajax({
+                    url: 'login.php',
+                    method: 'POST',
+                    dataType: 'text',
+                    data: {
+                        key: 'login',
+                        username: u.val(),
+                        password: p.val(),
+                    },
+                    success: function(data){
+                        if (data == "greska"){
+                            alert('Prijavljivanje nije uspelo. Pokusajte uskoro ponovo.');
+                        }
+                        else {
+                            window.location = "pocetna.html";
+                        }
+                    }
+                })
+            }
+        }
+
+        //REGISTER
+        function Register(){
+            var name = $("#imeprezime");
+            var username = $("#korisnickoIme");
+            var password = $("#lozinka");
+            var check = $("#lozinka2");
+                
+            if (pomocna(name) & pomocna(username) & pomocna(password) & pomocna(check)){
+                if(password.val() == check.val()){
+                    $.ajax({
+                        url: 'register.php',
+                        method: 'POST',
+                        dataType: 'text',
+                        data: {
+                            key: 'reg',
+                            name: name.val(),
+                            username: username.val(),
+                            password: password.val(),
+                        },
+                        success: function(data){
+                            if (data == "OK"){
+                                alert('Uspeh!');
+                                window.location = "index.html";
+                            } else {
+                                alert('Neuspesno. Razlog: ' + data);
+                            }
+                        }
+                    })
+                } else {
+                    alert("Lozinke moraju biti razlicite.");
+
+                    password.css('border', '5px orange');
+                    check.css('border', '5px orange');
+                }
+            }
+        }
+
+
     </script>
 </body>
 </html>
