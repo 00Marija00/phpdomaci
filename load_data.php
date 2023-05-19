@@ -1,5 +1,6 @@
 <?php
 include('connection.php');
+session_start();
 
 if (isset($_POST['key'])) {
 
@@ -7,6 +8,7 @@ if (isset($_POST['key'])) {
 
         $todo_id = $_POST['todo_id'];
 
+        $userid = $_SESSION['userid'];
         $nazivTaska = $_POST['nazivTaska'];
         $datumPocetka = $_POST['datumPocetka'];
         $datumZavrsetka = $_POST['datumZavrsetka'];
@@ -19,7 +21,7 @@ if (isset($_POST['key'])) {
             echo "Isti task " . $naziv . ", već postoji!";
         } else {
 
-            $sql = "INSERT INTO `todo` (`todo_id`,`nazivTaska`, `datumPocetka`, `datumZavrsetka`,`osobeTaska`,`opisTaska`) VALUES ('$todo_id','$nazivTaska', '$datumPocetka', '$datumZavrsetka', '$osobeTaska', '$opisTaska')";
+            $sql = "INSERT INTO `todo` (`todo_id`,`nazivTaska`, `datumPocetka`, `datumZavrsetka`,`osobeTaska`,`opisTaska`,`userid`) VALUES ('$todo_id','$nazivTaska', '$datumPocetka', '$datumZavrsetka', '$osobeTaska', '$opisTaska', '$userid')";
 
             if ($conn->query($sql) === TRUE) {
                 echo "Ubacen novi task!";
@@ -32,10 +34,11 @@ if (isset($_POST['key'])) {
 
     if ($_POST['key'] == 'load') {
 
+        $userid = $_SESSION['userid'];
         $start = $conn->real_escape_string($_POST['start']);
         $limit = $conn->real_escape_string($_POST['limit']);
         $sort = $conn->real_escape_string($_POST['sort']);
-        $sql = $conn->query("SELECT todo_id, nazivTaska, datumPocetka, datumZavrsetka, osobeTaska, opisTaska FROM todo ORDER BY $sort LIMIT $start, $limit");
+        $sql = $conn->query("SELECT todo_id, nazivTaska, datumPocetka, datumZavrsetka, osobeTaska, opisTaska FROM todo WHERE userid = $userid ORDER BY $sort LIMIT $start, $limit");
 
         if ($sql->num_rows > 0) {
             $response = "";
