@@ -66,27 +66,27 @@
 
               <div id="vidi" style="display: none">
                 <h3>Naziv taska:</h3>
-                <div id="nazivTaska"></div>
+                <div id="nazivTaskaView"></div>
                 <hr />
 
                 <h3>Datumi:</h3>
-                <div id="datumPocetka"></div>
-                <div id="datumZavrsetka"></div>
+                <div id="datumPocetkaView"></div>
+                <div id="datumZavrsetkaView"></div>
 
                 <h3>Osobe zaduzene:</h3>
-                <div id="osobeTaska"></div>
+                <div id="osobeTaskaView"></div>
 
                 <h3>Opis taska:</h3>
-                <div id="opisTaska"></div>
+                <div id="opisTaskaView"></div>
               </div>
             </div>
 
             <div class="modal-footer custom-modal-footer">
               <input
                 type="button"
-                class="btn btn-primary p-2"
+                class="btn btn-primary"
                 data-dismiss="modal"
-                value="Izađi"
+                value="Zatvori"
                 id="closeBtn"
                 style="display: none"
               />
@@ -178,6 +178,12 @@
       $("#dovidjenja").on("click", logout);
 
       $(document).ready(function () {
+        $(document).ready(function () {
+          $("#closeBtn").on("click", function () {
+            $(".modal").modal("hide");
+          });
+        });
+
         $("#dodajNovi").on("click", function () {
           $("#tableManager").modal("show");
         });
@@ -242,18 +248,17 @@
             todo_id: broj_reda,
           },
           success: function (response) {
-            if (tip == "viewClicked") {
-              $(".modal-title").html("Detaljniji prikaz taska:");
+            if (tip == "pogledaj") {
+              $(".modal-title").text("Detaljniji prikaz taska:");
 
-              $("#vidi").fadeIn();
               $("#izmeni").fadeOut();
+              $("#vidi").fadeIn();
 
-              $("#todo_id").html(response.todo_id);
-              $("#nazivTaska").html(response.nazivTaska);
-              $("#datumPocetka").html(response.datumPocetka);
-              $("#datumZavrsetka").html(response.datumZavrsetka);
-              $("#osobeTaska").html(response.osobeTaska);
-              $("#opisTaska").html(response.opisTaska);
+              $("#nazivTaskaView").text(response.nazivTaska);
+              $("#datumPocetkaView").text(response.datumPocetka);
+              $("#datumZavrsetkaView").text(response.datumZavrsetka);
+              $("#osobeTaskaView").text(response.osobeTaska);
+              $("#opisTaskaView").text(response.opisTaska);
 
               $("#manageBtn").fadeOut();
               $("#closeBtn").fadeIn();
