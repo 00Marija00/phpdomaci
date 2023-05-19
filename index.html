@@ -1,197 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Sofia"
+    />
     <style>
+      body {
+        background-color: pink;
+        font-family: Sofia, sans-serif;
+      }
 
-        body{
-            background-color: pink;
-            font-family: Sofia, sans-serif;
-        }
+      .belo {
+        background-color: white;
+        padding: 3%;
+        font-family: Sofia, sans-serif;
+      }
 
-        .belo{
-            background-color: white;
-            padding: 3%;
-            font-family: Sofia, sans-serif;
-        }
-
-        .pink {
-            background-color: hotpink;
-            color: white;
-        }
-
+      .pink {
+        background-color: hotpink;
+        color: white;
+      }
     </style>
     <title>Prijava</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="grid-container">
-        <div class="grid-x">
-            <div class="belo cell medium-5">
-                <form>
-                    <div class="callout text-center">
-                        <h1><b>Dobrodosli!</b></h1>
-                    </div>
-
-                    <div class="cell">
-                        <h2 class="text-center">Prijava</h2>
-
-                        <div class="grid-x grid-margin-x">
-                            <div class="cell">
-                                <label>Korisnicko ime
-                                    <input type="text" name="username" placeholder="Username" id="username">
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="grid-x grid-margin-x">
-                            <div class="cell">
-                                <label>Sifra
-                                    <input type="password" name="password" placeholder="Password" id="password">
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="grid-x grid-margin-x">
-                            <div class="cell">
-                                <button type="button" id="login" class="button primary expanded alert" onclick="Login()">Prijavi se</button>
-                            </div>
-                        </div>
-
-                        <hr>
-
-                        <h2 class="text-center">Kreiraj nalog:</h2>
-
-                        <div id="registration">
-                            <div class="grid-x grid-margin-x">
-                                <div class="cell">
-                                    <label>Ime i prezime
-                                        <input type="text" placeholder="Ime i prezime..." id="imeprezime">
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="grid-x grid-margin-x">
-                                <div class="cell">
-                                    <label>Korisnicko ime
-                                        <input type="text" placeholder="Korisnicko ime..."id="korisnickoIme">
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="grid-x grid-margin-x">
-                                <div class="cell">
-                                    <label>Sifra
-                                        <input type="password" placeholder="Unesi sifru..." id="lozinka">
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="grid-x grid-margin-x">
-                                <div class="cell">
-                                    <label>Potvrdi sifru
-                                        <input type="password" placeholder="Potvrdi iznad unetu sifru..." id="lozinka2">
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="grid-x grid-margin-x">
-                                <div class="cell">
-                                    <button type="button" class="button primary expanded alert" onclick="Register()">Kreiraj novi nalog u bazi podataka</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+      <div class="grid-x">
+        <div class="belo cell medium-5">
+          <form>
+            <div class="callout text-center">
+              <h1><b>Dobrodosli!</b></h1>
             </div>
+
+            <div class="cell">
+              <h2 class="text-center">Prijava</h2>
+
+              <div class="grid-x grid-margin-x">
+                <div class="cell">
+                  <label
+                    >Korisnicko ime
+                    <input
+                      type="text"
+                      name="username"
+                      placeholder="Username"
+                      id="username"
+                    />
+                  </label>
+                </div>
+              </div>
+
+              <div class="grid-x grid-margin-x">
+                <div class="cell">
+                  <label
+                    >Sifra
+                    <input
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      id="password"
+                    />
+                  </label>
+                </div>
+              </div>
+
+              <div class="grid-x grid-margin-x">
+                <div class="cell">
+                  <button
+                    type="button"
+                    id="login"
+                    class="button primary expanded alert"
+                    onclick="Login()"
+                  >
+                    Prijavi se
+                  </button>
+                </div>
+              </div>
+
+              <hr />
+
+              <h2 class="text-center">Kreiraj nalog:</h2>
+
+              <div id="registration">
+                <div class="grid-x grid-margin-x">
+                  <div class="cell">
+                    <label
+                      >Ime i prezime
+                      <input
+                        type="text"
+                        placeholder="Ime i prezime..."
+                        id="imeprezime"
+                      />
+                    </label>
+                  </div>
+                </div>
+
+                <div class="grid-x grid-margin-x">
+                  <div class="cell">
+                    <label
+                      >Korisnicko ime
+                      <input
+                        type="text"
+                        placeholder="Korisnicko ime..."
+                        id="korisnickoIme"
+                      />
+                    </label>
+                  </div>
+                </div>
+
+                <div class="grid-x grid-margin-x">
+                  <div class="cell">
+                    <label
+                      >Sifra
+                      <input
+                        type="password"
+                        placeholder="Unesi sifru..."
+                        id="lozinka"
+                      />
+                    </label>
+                  </div>
+                </div>
+
+                <div class="grid-x grid-margin-x">
+                  <div class="cell">
+                    <label
+                      >Potvrdi sifru
+                      <input
+                        type="password"
+                        placeholder="Potvrdi iznad unetu sifru..."
+                        id="lozinka2"
+                      />
+                    </label>
+                  </div>
+                </div>
+
+                <div class="grid-x grid-margin-x">
+                  <div class="cell">
+                    <button
+                      type="button"
+                      class="button primary expanded alert"
+                      onclick="Register()"
+                    >
+                      Kreiraj novi nalog u bazi podataka
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js" crossorigin="anonymous"></script>
-    
+    <script
+      src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js"
+      crossorigin="anonymous"
+    ></script>
+
     <script type="text/javascript">
-       
-       //POMOCNA FUNKCIJA
-       function pomocna(poziv){
-            if (poziv.val() == ''){
-                poziv.css('border', '5px solid hotpink');
-                return false;
-            } else 
-                poziv.css('border','');
-            return true;
-        }
-       
-       
-       //LOGIN
-        function Login(){
-            var u = $("#username");
-            var p = $("#password");
-                
-            if (pomocna(u) & pomocna(p)){
-                $.ajax({
-                    url: 'login.php',
-                    method: 'POST',
-                    dataType: 'text',
-                    data: {
-                        key: 'login',
-                        username: u.val(),
-                        password: p.val(),
-                    },
-                    success: function(data){
-                        if (data == "greska"){
-                            alert('Prijavljivanje nije uspelo. Pokusajte uskoro ponovo.');
-                        }
-                        else {
-                            window.location = "pocetna.php";
-                        }
-                    }
-                })
-            }
-        }
+      //POMOCNA FUNKCIJA
+      function pomocna(poziv) {
+        if (poziv.val() == "") {
+          poziv.css("border", "5px solid hotpink");
+          return false;
+        } else poziv.css("border", "");
+        return true;
+      }
 
-        //REGISTER
-        function Register(){
-            var name = $("#imeprezime");
-            var username = $("#korisnickoIme");
-            var password = $("#lozinka");
-            var check = $("#lozinka2");
-                
-            if (pomocna(name) & pomocna(username) & pomocna(password) & pomocna(check)){
-                if(password.val() == check.val()){
-                    $.ajax({
-                        url: 'register.php',
-                        method: 'POST',
-                        dataType: 'text',
-                        data: {
-                            key: 'reg',
-                            name: name.val(),
-                            username: username.val(),
-                            password: password.val(),
-                        },
-                        success: function(data){
-                            if (data == "OK"){
-                                alert('Uspeh!');
-                                window.location = "index.html";
-                            } else {
-                                alert('Neuspesno. Razlog: ' + data);
-                            }
-                        }
-                    })
+      //LOGIN
+      function Login() {
+        var u = $("#username");
+        var p = $("#password");
+
+        if (pomocna(u) & pomocna(p)) {
+          $.ajax({
+            url: "login.php",
+            method: "POST",
+            dataType: "text",
+            data: {
+              key: "login",
+              username: u.val(),
+              password: p.val(),
+            },
+            success: function (data) {
+              if (data == "greska") {
+                alert("Prijavljivanje nije uspelo. Pokusajte uskoro ponovo.");
+              } else {
+                window.location = "pocetna.html";
+              }
+            },
+          });
+        }
+      }
+
+      //REGISTER
+      function Register() {
+        var name = $("#imeprezime");
+        var username = $("#korisnickoIme");
+        var password = $("#lozinka");
+        var check = $("#lozinka2");
+
+        if (
+          pomocna(name) &
+          pomocna(username) &
+          pomocna(password) &
+          pomocna(check)
+        ) {
+          if (password.val() == check.val()) {
+            $.ajax({
+              url: "register.php",
+              method: "POST",
+              dataType: "text",
+              data: {
+                key: "reg",
+                name: name.val(),
+                username: username.val(),
+                password: password.val(),
+              },
+              success: function (data) {
+                if (data == "OK") {
+                  alert("Uspeh!");
+                  window.location = "index.html";
                 } else {
-                    alert("Lozinke moraju biti razlicite.");
-
-                    password.css('border', '5px orange');
-                    check.css('border', '5px orange');
+                  alert("Neuspesno. Razlog: " + data);
                 }
-            }
+              },
+            });
+          } else {
+            alert("Lozinke moraju biti razlicite.");
+
+            password.css("border", "5px orange");
+            check.css("border", "5px orange");
+          }
         }
-
-
+      }
     </script>
-</body>
+  </body>
 </html>
