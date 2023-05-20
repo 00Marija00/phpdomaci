@@ -41,13 +41,13 @@
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="Datum pocetka..."
+                  placeholder="YY-MM-DD..."
                   id="datumPocetka"
                 /><br />
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="Datum zavrsetka..."
+                  placeholder="YY-MM-DD..."
                   id="datumZavrsetka"
                 /><br />
                 <input
@@ -321,11 +321,11 @@
         var ott = $("#opisTaska");
 
         if (
-          isNotEmpty(nt) &
-          isNotEmpty(dp) &
-          isNotEmpty(dz) &
-          isNotEmpty(ot) &
-          isNotEmpty(ott)
+          praznoPolje(nt) &
+          praznoPolje(dp) &
+          praznoPolje(dz) &
+          praznoPolje(ot) &
+          praznoPolje(ott)
         ) {
           $.ajax({
             url: "load_data.php",
@@ -341,22 +341,25 @@
               opisTaska: ott.val(),
             },
             success: function (data) {
-              if (
-                data != "Novi zadatak je dodat!" ||
-                data != "Zadatak je uspešno izmenjen!"
-              ) {
-                alert(data);
+              if (data == "Ubacen novi task!") {
+                //greska
+                alert("Uspeh! " + data);
+                location.reload();
               } else {
-                alert(data);
+                if (data == "Uspešno izmenjen task!") {
+                  //uspeh
+                  alert("Uspeh! " + data);
+                  location.reload();
+                } else {
+                  alert("Greska! " + data);
+                }
               }
-
-              location.reload();
             },
           });
         }
       }
 
-      function isNotEmpty(element) {
+      function praznoPolje(element) {
         if (element.val() == "") {
           element.css("border", "3px dotted red");
           return false;
